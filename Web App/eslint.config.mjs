@@ -17,9 +17,11 @@ const eslintConfig = [
     rules: {
       "@typescript-eslint/no-explicit-any": "off", // Disable the rule for using `any` type
       "no-console": "off", // Disable no-console rule (if needed)
+      "@typescript-eslint/no-unused-vars": "off", // Disable the no-unused-vars rule
       // Add other rules to disable here
     },
   },
 ];
 
 export default eslintConfig;
+  
