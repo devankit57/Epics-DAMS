@@ -45,7 +45,7 @@ export default function Home() {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold">Digital Transformation</h3>
               <p className="text-gray-600">
-                Through the Digital Academic Management System (DAMS), we're bringing cutting-edge technology to our schools, enhancing the learning experience and improving administrative efficiency.
+                Through the Digital Academic Management System (DAMS), we&apos;re bringing cutting-edge technology to our schools, enhancing the learning experience and improving administrative efficiency.
               </p>
             </div>
           </div>
