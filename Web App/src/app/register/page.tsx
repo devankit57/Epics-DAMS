@@ -1,12 +1,8 @@
-'use client'
+"use client"
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Label } from '@/components/ui/label'
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -46,66 +42,66 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-md">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold">Create an account</CardTitle>
-          <CardDescription>
-            Enter your information to create your account
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
-              <Input
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4">
+      <div className="w-full max-w-lg bg-white shadow-lg rounded-lg">
+        <div className="px-8 py-6">
+          <h1 className="text-3xl font-semibold text-center text-gray-800">Create an Account</h1>
+          <p className="text-center text-gray-600 text-sm mt-2">Sign up to get started</p>
+          {error && (
+            <div className="mt-4 text-sm text-red-500 text-center">
+              {error}
+            </div>
+          )}
+          <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+            <div className="flex flex-col">
+              <label htmlFor="name" className="text-gray-700 font-medium mb-1">Name</label>
+              <input
                 id="name"
                 name="name"
+                type="text"
                 placeholder="John Doe"
                 required
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
+            <div className="flex flex-col">
+              <label htmlFor="email" className="text-gray-700 font-medium mb-1">Email</label>
+              <input
                 id="email"
                 name="email"
                 type="email"
-                placeholder="m@example.com"
+                placeholder="example@mail.com"
                 required
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input
+            <div className="flex flex-col">
+              <label htmlFor="password" className="text-gray-700 font-medium mb-1">Password</label>
+              <input
                 id="password"
                 name="password"
                 type="password"
+                placeholder="••••••••"
                 required
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
             </div>
-            {error && (
-              <div className="text-sm text-red-500">
-                {error}
-              </div>
-            )}
-            <Button 
-              type="submit" 
-              className="w-full"
+            <button
+              type="submit"
+              className={`w-full py-2 px-4 text-white font-semibold rounded-md ${loading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700 transition'} disabled:opacity-50`}
               disabled={loading}
             >
-              {loading ? 'Creating account...' : 'Register'}
-            </Button>
+              {loading ? 'Creating Account...' : 'Register'}
+            </button>
           </form>
-          <div className="mt-4 text-center text-sm">
+          <p className="mt-6 text-center text-sm text-gray-600">
             Already have an account?{' '}
-            <Link href="/login" className="text-primary hover:underline">
+            <Link href="/login" className="text-blue-600 font-semibold hover:underline">
               Login
             </Link>
-          </div>
-        </CardContent>
-      </Card>
+          </p>
+        </div>
+      </div>
     </div>
   )
 }
-
